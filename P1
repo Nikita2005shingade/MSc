@@ -1,0 +1,169 @@
+(a) Write a Python program to create variables of different data types and print both the value and its data type.
+Use the following values: 
+•	25   
+•	25.75 
+•	"Data Science" 
+•	True 
+•	5 + 8j 
+•	[10,20,30] 
+•	(10,20,30) 
+•	{10,20,30} 
+•	{"Name":"John","Age":21}   
+
+ANSWER
+
+a = 25
+b = 25.75
+c = "Data Science"
+d = True
+e = 5+8j
+f = [10,20,30]
+g = (10,20,30)
+h = {10,20,30}
+i = {"Name":"John","Age":21}
+
+print(a, type(a))
+print(b, type(b))
+print(c, type(c))
+print(d, type(d))
+print(e, type(e))
+print(f, type(f))
+print(g, type(g))
+print(h, type(h))
+print(i, type(i))
+------------------------------------------------------------------------------------------
+(b) Write a Python program to perform the following type conversions.
+•	Integer to Float 
+•	Integer to String 
+•	String to Integer 
+•	List to Tuple 
+•	Tuple to List 
+•	List to Set 
+•	Set to List 
+Print the data type before and after conversion.
+
+ANSWER
+
+a = 10
+
+print(type(a))
+a = float(a)
+print(type(a))
+
+a = str(a)
+print(type(a))
+
+b = "20"
+b = int(b)
+print(type(b))
+
+c = [1,2,3]
+c = tuple(c)
+print(c)
+
+c = list(c)
+print(c)
+
+c = set(c)
+print(c)
+
+c = list(c)
+print(c)
+------------------------------------------------------------------------------------
+(C) Write a python code to create a list containing marks of five students.Perform the following operations:
+•	Display the list                                                 Add a new mark 
+•	Insert a mark at index 2                                 Remove a mark 
+•	Find maximum mark                                      Find minimum mark 
+•	Calculate average marks                               Sort the list in ascending order 
+•	Sort the list in descending order 
+
+ANSWER
+
+marks = [70,80,60,90,50]
+
+print(marks)
+
+marks.append(85)
+marks.insert(2,75)
+marks.remove(50)
+
+print(marks)
+print(max(marks))
+print(min(marks))
+print(sum(marks)/len(marks))
+
+marks.sort()
+print(marks)
+
+marks.sort(reverse=True)
+print(marks)
+
+-------------------------------------------------------------------------------------
+Part B
+(a) Write a python code to Create a tuple containing names of five programming languages.
+Create a dictionary where:
+•	Key = Programming Language 
+•	Value = Year of Release 
+Perform the following operations.
+•	Display all keys 
+•	Display all values 
+•	Search for a language 
+•	Update the release year 
+•	Delete one language 
+•	Display the final dictionary
+
+ANSWER
+
+languages = ("Python","Java","C","R","C++")
+
+d = {"Python":1991,
+     "Java":1995,
+     "C":1972,
+     "R":1993,
+     "C++":1985}
+
+print(d.keys())
+print(d.values())
+
+print("Python" in d)
+
+d["Python"] = 1990
+
+del d["R"]
+
+print(d)
+ ----------------------------------------------------------------------------
+  (b) Write a python code. Accept a paragraph from the user.
+Perform the following tasks.
+•	Count total words 
+•	Count unique words 
+•	Find the frequency of every word 
+•	Display the most frequent word 
+•	Display words appearing only once 
+
+ANSWER
+
+text = input("Enter paragraph: ")
+
+words = text.lower().split()
+
+print("Total:", len(words))
+print("Unique:", len(set(words)))
+
+freq = {}
+
+for w in words:
+    freq[w] = words.count(w)
+
+print("Frequency:", freq)
+
+print("Most frequent:", max(freq, key=freq.get))
+
+print("Once:")
+for w in freq:
+    if freq[w] == 1:
+        print(w)
+
+print("Alphabetical:", sorted(words))
+
+•	Sort words alphabetically 
