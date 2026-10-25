@@ -1,0 +1,95 @@
+a) Write a Python program to Detect Duplicate Email Addresses
+ A company imports customer email addresses from a database. Write a      function that identifies whether duplicate emails exist.  
+
+ANSWER
+
+def check_duplicate(emails):
+    if len(emails) != len(set(emails)):
+        return True
+    return False
+
+emails = ["a@gmail.com", "b@gmail.com", "a@gmail.com"]
+
+print(check_duplicate(emails))
+-------------------------------------------------------------------------------------
+
+(b) Write a Python program to accept customer IDs from multiple sources, use a set to remove duplicate customer IDs, and display the unique customer IDs along with the total number of unique customers.
+
+ANSWER
+
+ids = [101, 102, 103, 101, 104, 102]
+
+unique = set(ids)
+
+print("Unique IDs:", unique)
+print("Total unique customers:", len(unique))
+---------------------------------------------------------------------------
+
+(C) Write a Python program to perform set operations on the customer lists of two company branches and display:
+1.	Customers common to both Branch A and Branch B. 
+2.	Customers present only in Branch A. 
+3.	Customers present only in Branch B. 
+4.	All unique customers from both branches. 
+Use appropriate Python set operations such as union, intersection, and difference.
+
+ANSWERS
+
+A = {101, 102, 103, 104}
+B = {103, 104, 105, 106}
+
+print("Common:", A.intersection(B))
+print("Only Branch A:", A.difference(B))
+print("Only Branch B:", B.difference(A))
+print("All customers:", A.union(B))
+----------------------------------------------------------------
+
+
+
+Part B
+(a) Write a Python program to create a function validate_customer() that validates customer information using the following rules:
+1.	Customer ID must be unique. 
+2.	Customer age must be 18 or above. 
+3.	Customer must have a valid email address. 
+4.	Customer must agree to the terms and conditions. 
+Use Set, Boolean values, operators, and functions in the program
+
+ANSWERS
+
+def validate_customer(cid, age, email, agree, ids):
+    if cid in ids:
+        return False
+    if age < 18:
+        return False
+    if "@" not in email or "." not in email:
+        return False
+    if not agree:
+        return False
+    return True
+
+ids = {101, 102, 103}
+
+print(validate_customer(104, 20, "abc@gmail.com", True, ids))
+print(validate_customer(101, 20, "abc@gmail.com", True, ids))
+-----------------------------------------------------------------------------------
+
+(b) Write a Python program to create a function check_eligibility ()   to determine whether a student is eligible to appear for an examination. The student will be eligible only if all the following conditions are satisfied:
+•   Attendance must be at least 75%. 
+•   Assignment must be submitted. 
+•   Student must have paid the examination fee. 
+•   Student must have completed the required practical work. 
+•   Student must have cleared all previous dues.
+The function should return a Boolean value (True or False) indicating whether the student is eligible for the examination.
+Use: Functions, Boolean 
+
+ANSWERS
+
+def check_eligibility(attendance, assignment, fee, practical, dues):
+    return (attendance >= 75 and assignment == True
+            and fee == True and practical == True
+            and dues == True)
+
+print(check_eligibility(80, True, True, True, True))
+print(check_eligibility(60, True, True, True, True))
+
+
+values, comparison operators, and logical operators (and ,or)
