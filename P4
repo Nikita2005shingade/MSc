@@ -1,0 +1,94 @@
+(a) Write a Python program using NumPy to sort an array in ascending and descending order and display the indices of the sorted elements using np.argsort().
+
+ANSWERS
+
+import numpy as np
+
+a = np.array([40, 10, 30, 20, 50])
+
+i = np.argsort(a)
+print("Ascending:", a[i])
+print("Indices:", i)
+
+j = np.argsort(a)[::-1]
+print("Descending:", a[j])
+print("Indices:", j)
+-------------------------------------------------------------------------------------
+
+(b) Write a Python program using NumPy to accept 10 numbers from the user and create a NumPy array. Display all even numbers and odd numbers separately and find the second-largest and second-smallest elements .
+
+ANSWERS
+
+import numpy as np
+
+a = np.array([int(input("Enter number: ")) for i in range(10)])
+
+print("Even:", a[a % 2 == 0])
+print("Odd:", a[a % 2 != 0])
+
+b = np.sort(a)
+print("Second smallest:", b[1])
+print("Second largest:", b[-2])
+---------------------------------------------------------------------------------------
+
+
+(C) Write a Python program using NumPy to apply different discounts to an array of product prices: 
+•	10% discount for prices above ₹5000 
+•	5% discount for prices between ₹2000 and ₹5000 
+•	No discount below ₹2000.
+
+ANSWERS
+
+import numpy as np
+
+p = np.array([1000, 3000, 6000, 5000])
+
+d = np.where(p > 5000, p * 0.10,
+    np.where(p >= 2000, p * 0.05, 0))
+
+print("Original prices:", p)
+print("Discount:", d)
+print("Final prices:", p - d)
+-----------------------------------------------------------
+
+
+Part B
+ (a) Write a Python program using NumPy to analyze daily temperature data and find the number of days where the temperature was above the average temperature. 
+ 
+ANSWERS
+
+import numpy as np
+
+t = np.array([30, 32, 28, 35, 31, 36, 29])
+
+avg = np.mean(t)
+print("Average:", avg)
+print("Days above average:", np.sum(t > avg))
+-----------------------------------------------------------------------
+(b)Write a Python program using NumPy to create an array of product prices and calculate the discounted price using a 10% discount for products costing more than ₹1000. 
+ 
+ANSWERS
+
+import numpy as np
+
+p = np.array([500, 1200, 2000, 800, 1500])
+
+d = np.where(p > 1000, p * 0.90, p)
+
+print("Original prices:", p)
+print("Discounted prices:", d)
+------------------------------------------------------------------
+(c) Write a Python program using NumPy to use Boolean indexing to identify customers whose: 
+•	age is between 20 and 40 
+•	purchase amount is greater than ₹5000.
+
+import numpy as np
+
+age = np.array([18, 25, 35, 45, 30])
+purchase = np.array([6000, 4000, 7000, 8000, 9000])
+
+result = (age >= 20) & (age <= 40) & (purchase > 5000)
+
+print("Eligible customers:", result)
+print("Ages:", age[result])
+print("Purchase amounts:", purchase[result])
