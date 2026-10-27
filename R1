@@ -1,0 +1,124 @@
+Question 1
+Write an R program to display the message “Data Science” and create two vectors, then perform their element-wise addition and display the resulting vector.
+
+Code:
+print("Data Science")
+a <- c(10, 20, 30)
+b <- c(5, 10, 15)
+print(a + b)
+
+----------------------------------------------------
+
+
+Question 2
+Write an R program to accept a positive integer n and determine whether it is even or odd, divisible by 3 and 5, prime, or palindrome. Use appropriate relational and logical operators along with decision-making statements.
+
+Code:
+n <- as.integer(readline("Enter number: "))
+
+if (n %% 2 == 0) print("Even") else print("Odd")
+
+if (n %% 3 == 0 && n %% 5 == 0)
+  print("Divisible by 3 and 5")
+else print("Not divisible by both")
+
+p <- TRUE
+if (n <= 1) p <- FALSE
+if (n > 2) {
+  for (i in 2:(n-1))
+    if (n %% i == 0) p <- FALSE
+}
+
+if (p) print("Prime") else print("Not Prime")
+
+r <- as.integer(paste(rev(strsplit(as.character(n), "")[[1]]), collapse=""))
+
+if (n == r) print("Palindrome") else print("Not Palindrome")
+--------------------------------------------------------------
+
+Question 3
+Write an R program to accept a positive integer n and, using a for loop:
+
+a. Generate the first n terms of the Fibonacci series.
+b. Calculate the sum of the generated terms.
+c. Display the largest term in the series.
+
+Code:
+n <- as.integer(readline("Enter number of terms: "))
+
+a <- 0
+b <- 1
+sum <- 0
+largest <- 0
+
+for (i in 1:n) {
+  print(a)
+  sum <- sum + a
+  largest <- a
+
+  temp <- a + b
+  a <- b
+  b <- temp
+}
+
+print(paste("Sum =", sum))
+print(paste("Largest term =", largest))
+
+------------------------------------------------------------------------------
+
+Question 4
+Write an R program using a repeat loop to continuously accept numbers from the user. The program should terminate when the user enters 0. After termination, display the sum of all the numbers entered and the total number of values entered (excluding 0).
+
+Code:
+sum <- 0
+count <- 0
+
+repeat {
+  n <- as.numeric(readline("Enter a number (0 to stop): "))
+
+  if (n == 0)
+    break
+
+  sum <- sum + n
+  count <- count + 1
+}
+
+print(paste("Sum =", sum))
+print(paste("Total numbers =", count))
+
+====================================================================================
+
+Question 5
+Write an R program to accept a positive integer and, using a while loop:
+
+a. Count the number of digits.
+b. Find the sum of its digits.
+c. Reverse the number.
+d. Check whether it is a palindrome.
+
+Code:
+n <- as.integer(readline("Enter a positive integer: "))
+
+temp <- n
+count <- 0
+sum <- 0
+rev <- 0
+
+while (temp > 0) {
+  digit <- temp %% 10
+
+  count <- count + 1
+  sum <- sum + digit
+  rev <- rev * 10 + digit
+
+  temp <- temp %/% 10
+}
+
+print(paste("Number of digits =", count))
+print(paste("Sum of digits =", sum))
+print(paste("Reverse =", rev))
+
+if (n == rev)
+  print("Palindrome")
+else
+  print("Not Palindrome")
